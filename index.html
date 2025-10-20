@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Рождения, Иван Коваленко!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #ffafbd, #ffc3a0);
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .age-badge {
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 20px auto;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 5px solid #ffd166;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .photo:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .joke-box {
+            background: #f8f9fa;
+            border-left: 5px solid #ffd166;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .joke {
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .joke:hover {
+            background: #fff9c4;
+        }
+
+        .hidden-message {
+            display: none;
+            background: #c8e6c9;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: confetti-fall 5s linear forwards;
+            z-index: 1000;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(1000px) rotate(360deg); opacity: 0; }
+        }
+
+        button {
+            background: #4ecdc4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #45b7af;
+            transform: scale(1.05);
+        }
+
+        .age-counter {
+            font-size: 1.5em;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>С Днём Рождения, Иван Коваленко!</h1>
+        
+        <div class="age-badge" id="ageBadge">??</div>
+        
+        <div class="age-counter">
+            <span id="ageCounter">40</span> лет? Серьёзно?
+        </div>
+
+        <div class="photo-gallery">
+            <!-- ЗАМЕНИТЕ ЭТИ ССЫЛКИ НА РЕАЛЬНЫЕ ФОТОГРАФИИ ИВАНА -->
+            <img src="https://via.placeholder.com/180x180/FF9999/FFFFFF?text=Иван+молодой" alt="Иван в молодости" class="photo">
+            <img src="https://via.placeholder.com/180x180/99FF99/FFFFFF?text=Иван+и+друзья" alt="Иван с друзьями" class="photo">
+            <img src="https://via.placeholder.com/180x180/9999FF/FFFFFF?text=Иван+и+хобби" alt="Иван и его хобби" class="photo">
+            <img src="https://via.placeholder.com/180x180/FFFF99/FFFFFF?text=Иван+сейчас" alt="Иван сегодня" class="photo">
+        </div>
+
+        <div class="joke-box">
+            <h2>Факты о твоём возрасте:</h2>
+            
+            <div class="joke" onclick="toggleMessage(this)">
+                1. С днём рождения, старость!
+                <div class="hidden-message">Говорят, с возрастом приходит мудрость... Где твоя?</div>
+            </div>
+            
+            <div class="joke" onclick="toggleMessage(this)">
+                2. Пора покупать мешки для песка!
+                <div class="hidden-message">Не для стройки, а чтобы подпорки делать, когда встаёшь с кресла!</div>
+            </div>
+            
+            <div class="joke" onclick="toggleMessage(this)">
+                3. Динозавров еще застал.
+                <div class="hidden-message">Именно поэтому ты так хорошо их рисуешь в детских раскрасках!</div>
+            </div>
+
+            <div class="joke" onclick="toggleMessage(this)">
+                4. Твой первый компьютер весил больше тебя.
+                <div class="hidden-message">И у него было целых 4 КБ оперативки! Роскошь!</div>
+            </div>
+        </div>
+
+        <button onclick="showSurprise()">Нажми для сюрприза!</button>
+        <button onclick="startConfetti()">Запустить конфетти!</button>
+        <button onclick="calculateRealAge()">Узнать реальный возраст (осторожно!)</button>
+
+        <div id="surprise" style="display: none; margin-top: 20px;">
+            <h2>🎉 Поздравляем! 🎉</h2>
+            <p>Иван, ты официально достиг возраста, когда твои шутки стали смешными только тебе самому!</p>
+            <p>Желаем здоровья, чтобы хватило сил задувать все свечи на торте!</p>
+        </div>
+    </div>
+
+    <script>
+        // Функция для показа скрытого сообщения
+        function toggleMessage(element) {
+            const message = element.querySelector('.hidden-message');
+            message.style.display = message.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Функция для запуска конфетти
+        function startConfetti() {
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }, i * 50);
+            }
+        }
+
+        // Функция для показа сюрприза
+        function showSurprise() {
+            document.getElementById('surprise').style.display = 'block';
+            startConfetti();
+        }
+
+        // "Реальный" возраст (шутка)
+        function calculateRealAge() {
+            const ageBadge = document.getElementById('ageBadge');
+            const ageCounter = document.getElementById('ageCounter');
+            let age = 0;
+            
+            const counter = setInterval(() => {
+                age++;
+                ageCounter.textContent = age;
+                ageBadge.textContent = age;
+                
+                if (age >= 35) { // Можно изменить на реальный возраст Ивана
+                    clearInterval(counter);
+                    ageCounter.textContent = age + " (но выглядишь на все 100!)";
+                    startConfetti();
+                }
+            }, 100);
+        }
+
+        // Запускаем небольшое конфетти при загрузке страницы
+        window.onload = function() {
+            startConfetti();
+            // Устанавливаем "возраст" в 0 для анимации
+            document.getElementById('ageBadge').textContent = "??";
+        };
+    </script>
+</body>
+</html>
