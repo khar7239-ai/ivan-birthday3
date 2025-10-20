@@ -239,7 +239,7 @@
                 ageCounter.textContent = age;
                 ageBadge.textContent = age;
                 
-                if (age >= 40) { // Можно изменить на реальный возраст Ивана
+                if (age >= 40) {
                     clearInterval(counter);
                     ageCounter.textContent = age + " (но выглядишь на все 100!)";
                     startConfetti();
@@ -250,8 +250,6 @@
         // Запускаем небольшое конфетти при загрузке страницы
         window.onload = function() {
             startConfetti();
-            // Устанавливаем "возраст" в 0 для анимации
-            document.getElementById('ageBadge').textContent = "??";
         };
     </script>
 </body>
